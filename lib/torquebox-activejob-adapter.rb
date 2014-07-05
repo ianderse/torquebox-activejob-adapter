@@ -1,5 +1,5 @@
 require 'torquebox/messaging'
-require_relative 'torquebox/active_job_processor'
+require_relative 'torque_box/active_job_processor'
 
 module ActiveJob
   module QueueAdapters
