@@ -9,7 +9,7 @@ CAUTION: This code is experimental and is very likely to break / change, use on 
 Add this line to your application's Gemfile:
 
     gem 'activejob', github: 'rails/activejob'
-    gem 'torquebox-activejob-adapter', '0.0.2'
+    gem 'torquebox-activejob-adapter', '0.0.1'
 
 
 Add this specification to your config/torquebox.yml
