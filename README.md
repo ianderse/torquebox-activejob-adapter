@@ -1,29 +1,39 @@
 # Torquebox::Activejob::Adapter
 
-TODO: Write a gem description
+This is a prototype implementation of a ActiveJob MessageProcessor for Torquebox3 and rails 4.
+
+CAUTION: This code is experimental and is very likely to break / change, use on your own risk.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'torquebox-activejob-adapter'
+    gem 'activejob', github: 'rails/activejob'
+    gem 'torquebox-activejob-adapter', '0.0.2'
 
-And then execute:
 
-    $ bundle
+Add this specification to your config/torquebox.yml
 
-Or install it yourself as:
+    queues:
+      /queues/active_job:
+    messaging:
+      /queues/active_job:
+        TorqueBox::ActiveJobProcessor:
+          concurrency: 1
 
-    $ gem install torquebox-activejob-adapter
+You can bump the concurrency value higher when running in production since torquebox will use a shared runtime for
+message processors.
 
-## Usage
+Create a initializer filer with the following content:
+    
+    begin
+      using_torquebox = ENV['TORQUEBOX_APP_NAME'].present?
+      
+      if using_torquebox
+        ActiveJob::Base.queue_adapter = ActiveJob::QueueAdapters::TorqueboxAdapter
+      end
+    end
 
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/torquebox-activejob-adapter/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+## Todo
+- Figure out how to test this thing
+- Add tests
