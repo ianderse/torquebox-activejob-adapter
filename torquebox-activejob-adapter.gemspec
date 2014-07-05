@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["hannes.nevalainen@me.com"]
   spec.summary       = %q{A prototype ActiveJob processor for Torquebox3}
   spec.description   = %q{A prototype ActiveJob processor for Torquebox3}
-  spec.homepage      = ""
+  spec.homepage      = 'https://github.com/kwando/torquebox-activejob-adapter'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
