@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "torquebox-activejob-adapter"
-  spec.version       = '0.0.1'
+  spec.version       = '0.0.2'
   spec.authors       = ["Hannes Nevalainen"]
   spec.email         = ["hannes.nevalainen@me.com"]
   spec.summary       = %q{A prototype ActiveJob processor for Torquebox3}
@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
 
-  spec.add_runtime_dependency 'activejob', '4.2.0.alpha'
+  spec.add_runtime_dependency 'activejob', '4.2.0.beta1'
   spec.add_runtime_dependency 'torquebox-messaging', '~> 3.1.0'
 
   spec.add_development_dependency "bundler", "~> 1.6"
